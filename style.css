@@ -1,0 +1,174 @@
+/* Core Styles */
+    body {
+        margin: 0; /* default thing to do */
+        font-family: 'Oxanium', cursive, Arial, Helvetica, sans-serif;
+        background: #333;
+        color: #fff;
+        font-size: 1.1em;
+        line-height: 1.5; /* space between text */
+        text-align: center; /* aligns everything to center */
+    }
+
+    img {
+        display: block; /* default thing to do for images */
+        width: 100%;
+        height: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+        margin: 0;
+        padding: 1em 0; /* 1em for up and down, 0 for left and right */
+    }
+
+    p {
+        margin: 0;
+        padding: 1em 0;
+    }
+
+    .btn {
+        display: inline-block; /* always good to use for buttons */
+        background: #333;
+        color: #fff;
+        text-decoration: none;
+        padding: 1em 2em;
+        border: 1px solid #666;
+        margin: 0.5em 0;
+    }
+
+    .btn:hover {
+        background: #eaeaea;
+        color: #333;
+    }
+
+
+/* Header Showcase */
+    #showcase {
+        min-height: 450px;
+        color: #fff;
+        text-align: center;
+    }
+
+    #showcase .bg-image { /* we are placing image on top of #showcase */
+        position: absolute; /* because it's gonna go over showcase div */
+        background: #333 url("https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%; /* = 100% of container size */
+        height: 450px; /* it needs to be the same as its parent, i.e. #showcase (450px) */
+        z-index: -1;
+        opacity: 0.4;
+    }
+
+    #showcase h1 {
+        padding-top: 100px; /* moves it a 100px down */
+        padding-bottom: 0;
+    }
+
+    #showcase .content-wrap, 
+    #section-a .content-wrap {
+        padding: 0 1.5em;
+    }
+
+
+/* Section A */
+    #section-a {
+        background: #eaeaea;
+        color: #333;
+        padding-bottom: 2em;
+    }
+
+/* Section B */
+    #section-b {
+        padding: 2em 1em 1em;
+    }
+
+    #section-b ul {
+        list-style: none; /* removes dots in uls */
+        margin: 0;
+        padding: 0;
+    }
+
+    #section-b li {
+        margin-bottom: 1em;
+        background: #fff;
+        color: #333;
+    }
+
+    .card-content {
+        padding: 1.5em;
+    }
+
+
+/* Section C */
+    #section-c {
+        background: #fff;
+        color: #333;
+        padding: 2em;
+    }
+
+
+/* Section D / Boxes */
+    #section-d .box {
+        padding: 2em;
+        color: #fff;
+    }
+
+    #section-d .box:first-child {
+        background: #2690d4;
+    }
+
+
+/* Footer */
+    #main-footer {
+        padding: 2em;
+        background: #000;
+        color: #fff;
+        text-align: center;
+    }
+
+    #main-footer a {
+        color: #2690d4;
+        text-decoration: none;
+    }
+
+
+/* Media Queries */
+    @media (min-width: 700px) {
+        .grid { /* we apply grid class */
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+            grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr; /* minmax(auto, 25em) means: if it is smaller than auto width, then do 25em width */
+        }
+
+        .content-wrap,
+        #section-b ul {
+            grid-column: 2/4;
+        }
+
+        .box, 
+        #main-footer div {
+            grid-column: span 2; /* each span 2 */
+        }
+
+        #section-a .content-text {
+            columns: 2;
+            column-gap: 2em;
+        }
+
+        #section-a .content-text p {
+            padding-top: 0; /* for text to be aligned */
+        }
+
+        #section-b ul { /* putting images beside each other */
+            display: flex;
+            flex-direction: row; /* default value is also row, so it's not really needed */
+            justify-content: space-around; /* very useful!!! */
+        }
+
+        #section-b li {
+            width: 31%; /* because there are 3 pictures */
+        }
+    }
